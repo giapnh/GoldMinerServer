@@ -1,5 +1,5 @@
 __author__ = 'Nguyen Huu Giap'
-
+from struct import *
 
 class Argument:
     #region Fields and Constants
@@ -10,60 +10,48 @@ class Argument:
     STRING = 10
     RAW = 11
 
-    type = INT
+    type = 0
     number_value = 0
     string_value = ""
     byte_value = bytes()
 
-    def __init__(self):
+    def __init__(self, _type, value):
+        """
+
+        @param _type: Data type
+        """
+        if _type is not None:
+            self.type = _type
+            if value is not None:
+                if self.type == self.BYTE or self.type == self.SHORT or self.type == self.INT or self.type == self.LONG:
+                    self.number_value = value
+                elif self.type == self.STRING:
+                    self.string_value = value
+                else:
+                    self.byte_value = value
         pass
-
-    def __init__(self, _type):
-        """
-
-        @param _type: Data type
-        """
-        self.type = _type
-
-    def __init__(self, _type, long_val):
-        """
-        @param _type: Data type
-        @param long_val: Long type value
-        """
-        self.type = _type
-        self.number_value = long_val
-
-    def __init__(self, _type, str_val):
-        """
-
-        @param _type:
-        @param str_val:
-        @return:
-        """
-        self.type = _type
-        self.string_value = str_val
 
     def get_log(self):
             s = ""
             if self.type == self.SHORT:
                 s += "short: " + self.number_value
-            elif type == self.INT:
+            elif self.type == self.INT:
                 s += "int: " + self.number_value
-            elif type == self.STRING:
+            elif self.type == self.STRING:
                 s += "String: " + self.string_value
-            elif type == self.RAW:
+            elif self.type == self.RAW:
                 s += "Raw: " + len(self.byte_value)
-            elif type == self.BYTE:
+            elif self.type == self.BYTE:
                 s += "Byte: " + self.number_value
-            elif type == self.LONG:
+            elif self.type == self.LONG:
                 s += "Long: " + self.number_value
             return s
 
     def to_string(self):
-        if None != self.string_value:
+        if self.type == self.STRING:
+            print len(self.string_value)
             return self.string_value
-        if None != self.byte_value:
-            s = ""
+        if self.type == self.RAW:
             try:
                 s = self.byte_value.decode('utf-8')
                 return s
