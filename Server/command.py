@@ -145,7 +145,6 @@ class Command:
             offset += 2
             pack_into("<B", buff, offset, arg.type)
             offset += 1
-            arg.write()
             if arg.type == Argument.BYTE:
                 pack_into("<B", buff, offset, arg.number_value)
                 offset += 1

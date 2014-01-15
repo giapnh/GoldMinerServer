@@ -49,7 +49,6 @@ class Argument:
 
     def to_string(self):
         if self.type == self.STRING:
-            print len(self.string_value)
             return self.string_value
         if self.type == self.RAW:
             try:

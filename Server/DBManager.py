@@ -24,7 +24,7 @@ class DBManager:
         c = self.db.cursor()
         c.execute("""SELECT * FROM user where u_username = %s""", (username,))
         if c.rowcount == 1:
-            print "ton tai" + username
+            print "Exits: " + username
             return True
         else:
             return False

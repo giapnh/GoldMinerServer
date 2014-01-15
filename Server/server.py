@@ -10,7 +10,7 @@ from struct import *
 """
 
 
-class MyServer(SocketServer.StreamRequestHandler):
+class MyServer(SocketServer.BaseRequestHandler):
     HOST, PORT = "localhost", 9999
     data = None
     reading = True
@@ -73,12 +73,12 @@ class MyServer(SocketServer.StreamRequestHandler):
                 long_val = long(unpack("<L", self.data[read_count:read_count + 8])[0])
                 read_count += 8
                 cmd.add_long(arg_code, long_val)
-        print cmd.get_log()
+        self.analysis_message(cmd)
+        pass
 
-    def analysis_message(self, data):
-        cmd = Command.read(data)
+    def analysis_message(self, cmd):
         #Receive message
-        print "Receive:   " + cmd.to_string()
+        print "Receive:   " + cmd.get_log()
         if cmd.code == Command.CMD_LOGIN:
             if self.db.check_user_exits(cmd.get_string(Argument.ARG_LOGIN_USERNAME)):
                 send_cmd = Command(Command.CMD_LOGIN)
@@ -86,14 +86,14 @@ class MyServer(SocketServer.StreamRequestHandler):
                 self.send(send_cmd)
                 pass
         elif cmd.code == Command.CMD_REGISTER:
-            print "cmd register"
+            pass
         else:
-            print "default"
-        return data
+            pass
+        return cmd
 
     def send(self, send_cmd):
-        self.wfile.write(send_cmd.to_string())
-        print "Send  :" + send_cmd.to_string()
+        self.request.sendall(send_cmd.get_bytes())
+        print "Send:   "+send_cmd.get_log()
         pass
 
 if __name__ == "__main__":
