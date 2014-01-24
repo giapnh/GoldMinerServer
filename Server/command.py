@@ -14,7 +14,13 @@ class Command:
     CMD_REGISTER = 1
     CMD_LOGIN = 2
     CMD_PLAYER_INFO = 3
-    CMD_PLAYER_CHAT = 10
+
+    CMD_ADD_FRIEND = 10
+    CMD_ACCEPT_FRIEND = 11
+    CMD_REMOVE_FRIEND = 12
+
+    CMD_PLAYER_CHAT = 20
+
 
     def __init__(self, code):
         self.args = {}

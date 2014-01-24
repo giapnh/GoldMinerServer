@@ -1,5 +1,5 @@
 __author__ = 'Nguyen Huu Giap'
-DEBUG = true
+DEBUG = True
 def log(string=""):
     if DEBUG:
         print string

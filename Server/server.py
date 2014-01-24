@@ -20,13 +20,13 @@ def read(sock, data):
     @param data the read data
     """
     read_count = 0
-    code = int(unpack("<H", self.data[0:2])[0])
+    code = int(unpack("<H", data[0:2])[0])
     read_count += 2
     cmd = Command(code)
-    num_arg = int(unpack("<H", self.data[2:4])[0])
+    num_arg = int(unpack("<H", data[2:4])[0])
     read_count += 2
     for i in range(0, num_arg, 1):
-        #Read all argument
+        """Read all argument"""
         arg_code = int(unpack("<H", data[read_count:read_count+2])[0])
         read_count += 2
         #Argument type
@@ -62,6 +62,7 @@ def read(sock, data):
             read_count += 8
             cmd.add_long(arg_code, long_val)
     analysis_message(sock, cmd)
+    print "2"
     pass
 
 def analysis_message(sock, cmd):
@@ -76,20 +77,20 @@ def analysis_message(sock, cmd):
     elif cmd.code == Command.CMD_REGISTER:
         pass
     elif cmd.code == Command.CMD_PLAYER_CHAT:
-
+        pass
+    elif cmd.code == Command.CMD_ADD_FRIEND:
+        log.log("Add friend...")
         pass
     else:
         pass
     return cmd
 
 def send(sock, send_cmd):
-
-    self.request.sendall(send_cmd.get_bytes())
+    request.sendall(send_cmd.get_bytes())
     print "Send:   "+send_cmd.get_log()
     pass
 
-
-HOST, PORT = "localhost", 9999
+HOST, PORT, RECV_BUFFER = "localhost", 9999, 4096
 data = None
 reading = True
 """Connection List"""
@@ -120,11 +121,11 @@ while True:
             try:
                 #In Windows, sometimes when a TCP program closes abruptly,
                 # a "Connection reset by peer" exception will be thrown
-                data = sock.recv(1024)
+                data = sock.recv(RECV_BUFFER)
                 if data:
                     read(sock, data)
-
-            except:
+            except IOError as err:
+                print 'My exception occurred, value:', e.value
                 print "Client (%s, %s) is offline" % addr
                 sock.close()
                 connection_list.remove(sock)
