@@ -47,6 +47,7 @@ class Argument:
                 s += "Long: " + self.number_value
             return s
 
+
     def to_string(self):
         if self.type == self.STRING:
             return self.string_value
@@ -58,6 +59,7 @@ class Argument:
                 return "ex"
         else:
             return self.number_value
+
 
     @staticmethod
     def get_argument_as_string(code):
