@@ -13,6 +13,8 @@ class Command:
     CMD_INVALID = -1
     CMD_REGISTER = 1
     CMD_LOGIN = 2
+    CMD_PLAYER_INFO = 3
+    CMD_PLAYER_CHAT = 10
 
     def __init__(self, code):
         self.args = {}
@@ -119,7 +121,7 @@ class Command:
             arg = self.args[key]
             #argument code
             cmd_len += 2
-            #argument data size
+            #argument data type
             cmd_len += 1
             arg_type = arg.type
             if arg_type == Argument.STRING:

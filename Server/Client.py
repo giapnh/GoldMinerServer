@@ -1,21 +1,13 @@
 __author__ = 'Nguyen Huu Giap'
 import socket
-import sys
+from command import Command
+from argument import Argument
 
-HOST, PORT = "localhost", 9999
-data = " ".join(sys.argv[1:])
-
-# Create a socket (SOCK_STREAM means a TCP socket)
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-try:
-    # Connect to server and send data
-    sock.connect((HOST, PORT))
-    print "Got connection"
-    sock.send(str(100))
-    received = sock.recv(1024)
-finally:
-    sock.close()
-
-print "Sent:     {}".format(data)
-print "Received: {}".format(received)
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client.connect(('localhost', 9999))
+while True:
+    data = client.recv(1000)
+    print len(bytearray(data))
+    cmd = Command(Command.CMD_PLAYER_CHAT)
+    cmd.add_string(Argument.ARG_MESSAGE, "chat")
+    client.send(cmd.get_bytes())
