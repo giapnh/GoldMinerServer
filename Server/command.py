@@ -79,23 +79,6 @@ class Command:
             return arg.number_value != 0
         return default
 
-    # def to_string(self):
-    #     res = ""
-    #     #1. command code
-    #     res += str(self.code)
-    #     #2. number of argument
-    #     res += "|"
-    #     res += str(len(self.args))
-    #
-    #     keys = self.args.keys()
-    #     for key in keys:
-    #         #3. argument
-    #         res += "|" + str(key)
-    #         arg = self.args[key]
-    #         res += "|" + str(arg.type)
-    #         res += "|" + str(arg.to_string())
-    #     return res
-
     @staticmethod
     def get_command_name(code):
         return "CmdName"

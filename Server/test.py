@@ -10,7 +10,12 @@ from struct import *
 """
 
 
-
+class MyServer(SocketServer.StreamRequestHandler):
+    HOST, PORT = "localhost", 9999
+    data = None
+    reading = True
+    db = DBManager()
+    db.connect('127.0.0.1', 'root', '', 'oot_online')
 
     def handle(self):
         try:
@@ -22,10 +27,6 @@ from struct import *
             pass
 
     def read(self):
-        """
-        Create command from received data
-
-        """
         read_count = 0
         code = int(unpack("<H", self.data[0:2])[0])
         read_count += 2
@@ -68,35 +69,34 @@ from struct import *
                 long_val = long(unpack("<L", self.data[read_count:read_count + 8])[0])
                 read_count += 8
                 cmd.add_long(arg_code, long_val)
-        self.analysis_message(cmd)
-        pass
+        print cmd.get_log()
 
-    def analysis_message(self, cmd):
+    def analysis_message(self, data):
+        cmd = Command.read(data)
         #Receive message
-        print "Receive:   " + cmd.get_log()
+        print "Receive:   " + cmd.to_string()
         if cmd.code == Command.CMD_LOGIN:
-            if self.db.check_user_exits(cmd.get_string(Argument.ARG_LOGIN_USERNAME)):
+            if self.db.check_user_exits(cmd.get_string(Argument.ARG_PLAYER_USERNAME)):
                 send_cmd = Command(Command.CMD_LOGIN)
                 send_cmd.add_int(Argument.ARG_CODE, 1)
                 self.send(send_cmd)
                 pass
         elif cmd.code == Command.CMD_REGISTER:
-            pass
+            print "cmd register"
         else:
-            pass
-        return cmd
+            print "default"
+        return data
 
     def send(self, send_cmd):
-        self.request.sendall(send_cmd.get_bytes())
-        print "Send:   "+send_cmd.get_log()
+        self.wfile.write(send_cmd.to_string())
+        print "Send  :" + send_cmd.to_string()
         pass
 
+if __name__ == "__main__":
+    #Start server
+    server = SocketServer.TCPServer((MyServer.HOST, MyServer.PORT), MyServer)
+    server.serve_forever()
 
-HOST, PORT = "localhost", 9999
-data = None
-reading = True
-db = DBManager()
-db.connect('127.0.0.1', 'root', '', 'oot_online')
-
+    server.socket.setblocking(False)
 
 
