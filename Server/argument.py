@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 __author__ = 'Nguyen Huu Giap'
 from struct import *
 
@@ -61,8 +62,11 @@ class Argument:
             return self.number_value
 
 
-    @staticmethod
-    def get_argument_as_string(code):
+    def get_argument_as_string(self, code):
+        for a in dir(self):
+            if a.startswith("ARG_"):
+                if getattr(self,a) == code:
+                    return a
         return "ArgName"
 
     ARG_CODE = 0

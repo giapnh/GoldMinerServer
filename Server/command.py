@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from ctypes import c_ushort
 from argument import Argument
 from struct import *
@@ -85,16 +86,19 @@ class Command:
             return arg.number_value != 0
         return default
 
-    @staticmethod
-    def get_command_name(code):
+    def get_command_name(self, code):
+        for a in dir(self):
+            if a.startswith("CMD_"):
+                if getattr(self,a) == code:
+                    return a
         return "CmdName"
 
     def get_log(self):
-        s = "************Command: " + self.get_command_name(self.code) + "[" + str(self.code) + "]\n"
+        s = "Command: " + self.get_command_name(self.code) + "[" + str(self.code) + "]\n"
         keys = self.args.keys()
         for key in keys:
             arg = self.args[key]
-            s += "    " + Argument.get_argument_as_string(key) + "[" + str(key) + "]" + str(arg.to_string()) + "\n"
+            s += "    " + arg.get_argument_as_string(key) + "[" + str(key) + "]" + str(arg.to_string()) + "\n"
         s += "\n"
         return s
 
@@ -116,7 +120,7 @@ class Command:
             if arg_type == Argument.STRING:
                 #string data length
                 cmd_len += 4
-                cmd_len += len(str(arg.string_value).encode())
+                cmd_len += len(str(arg.string_value).encode('utf-8'))
             elif arg_type == Argument.RAW:
                 cmd_len += 4
                 cmd_len += len(arg.byte_value)

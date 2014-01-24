@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 __author__ = 'Nguyen Huu Giap'
 import socket
 from command import Command
