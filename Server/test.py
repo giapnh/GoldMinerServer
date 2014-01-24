@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
+from database import dbmanager
+
 __author__ = 'Nguyen Huu Giap'
 import SocketServer
-from DBManager import DBManager
 from command import Command
 from argument import Argument
 from struct import *
@@ -14,7 +15,7 @@ class MyServer(SocketServer.StreamRequestHandler):
     HOST, PORT = "localhost", 9999
     data = None
     reading = True
-    db = DBManager()
+    db = dbmanager()
     db.connect('127.0.0.1', 'root', '', 'oot_online')
 
     def handle(self):

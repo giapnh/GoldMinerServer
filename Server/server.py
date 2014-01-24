@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
+from database.dbmanager import DBManager
+from help import log
+
 __author__ = 'Nguyen Huu Giap'
-import SocketServer
-from DBManager import DBManager
 from command import Command
 from argument import Argument
 from struct import *
 import socket
 import select
-import log
+
 """
 @author: giapnh
 """
@@ -62,28 +63,100 @@ def read(sock, data):
             read_count += 8
             cmd.add_long(arg_code, long_val)
     analysis_message(sock, cmd)
-    print "2"
     pass
 
 def analysis_message(sock, cmd):
-    #Receive message
-    print "Receive:   " + cmd.get_log()
+    """
+    @param sock: client just sent message
+    @param cmd: command
+    @return: no return
+    """
+    log.log("Receive:   " + cmd.get_log())
     if cmd.code == Command.CMD_LOGIN:
-        if db.check_user_exits(cmd.get_string(Argument.ARG_LOGIN_USERNAME)):
-            send_cmd = Command(Command.CMD_LOGIN)
-            send_cmd.add_int(Argument.ARG_CODE, 1)
-            send(sock, send_cmd)
-            pass
+        analysis_message_login(sock, cmd)
+        pass
     elif cmd.code == Command.CMD_REGISTER:
+        analysis_message_register(sock, cmd)
         pass
     elif cmd.code == Command.CMD_PLAYER_CHAT:
+        analysis_message_chat(sock, cmd)
         pass
     elif cmd.code == Command.CMD_ADD_FRIEND:
-        log.log("Add friend...")
+        analysis_message_add_friend(sock, cmd)
         pass
+    elif cmd.code == Command.CMD_ACCEPT_FRIEND:
+        analysis_message_accept_friend(sock, cmd)
+        pass
+    elif cmd.code == Command.CMD_REMOVE_FRIEND:
+        analysis_message_remove_friend(sock, cmd)
     else:
         pass
     return cmd
+
+def analysis_message_login(sock, cmd):
+    """
+    Login Message
+    @param sock:
+    @param cmd:
+    @return:
+    """
+     if db.check_user_login(cmd.get_string(Argument.ARG_PLAYER_USERNAME),
+                               cmd.get_string(Argument.ARG_PLAYER_PASSWRD)):
+            send_cmd = Command(Command.CMD_LOGIN)
+            send_cmd.add_int(Argument.ARG_CODE, 1)
+            send(sock, send_cmd)
+    pass
+
+def analysis_message_register(sock, cmd):
+    """
+    Register message
+    @param sock:
+    @param cmd:
+    @return:
+    """
+
+    pass
+
+def analysis_message_chat(sock, cmd):
+    """
+    Chat message
+    @param sock:
+    @param cmd:
+    @return:
+    """
+    for client in connection_list:
+        if client != server_socket and client != sock:
+            client.send(cmd.get_bytes())
+    pass
+
+def analysis_message_add_friend(sock, cmd):
+    """
+    Add friend message
+    @param sock:
+    @param cmd:
+    @return:
+    """
+    pass
+
+def analysis_message_accept_friend(sock, cmd):
+    """
+    Accept friend message
+    @param sock:
+    @param cmd:
+    @return:
+    """
+    pass
+
+
+def analysis_message_remove_friend(sock, cmd):
+    """
+    Remove exits friend message
+    @param sock:
+    @param cmd:
+    @return:
+    """
+    pass
+
 
 def send(sock, send_cmd):
     request.sendall(send_cmd.get_bytes())
@@ -95,6 +168,8 @@ data = None
 reading = True
 """Connection List"""
 connection_list = []
+"""List player loged in"""
+logedin_list = []
 """Database"""
 db = DBManager()
 db.connect('127.0.0.1', 'root', '', 'oot_online')
