@@ -31,7 +31,7 @@
       <file leaf-file-name="__builtin__.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/.PyCharm30/system/python_stubs/-762174762/__builtin__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1092" column="76" selection-start="37187" selection-end="37187" vertical-scroll-proportion="0.0" vertical-offset="18428" max-vertical-offset="86683">
+            <state line="1092" column="0" selection-start="36577" selection-end="36577" vertical-scroll-proportion="0.0" vertical-offset="18564" max-vertical-offset="85714">
               <folding />
             </state>
           </provider>
@@ -40,7 +40,7 @@
       <file leaf-file-name="client.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="38" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+            <state line="4" column="38" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="255">
               <folding />
             </state>
           </provider>
@@ -49,8 +49,10 @@
       <file leaf-file-name="server.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="39" selection-start="2984" selection-end="2984" vertical-scroll-proportion="0.70718235" vertical-offset="1240" max-vertical-offset="3621">
-              <folding />
+            <state line="81" column="5" selection-start="2684" selection-end="2684" vertical-scroll-proportion="0.45112783" vertical-offset="1197" max-vertical-offset="3638">
+              <folding>
+                <element signature="e#24#64#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,8 +60,10 @@
       <file leaf-file-name="dbmanager.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/dbmanager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1360">
-              <folding />
+            <state line="11" column="0" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1343">
+              <folding>
+                <element signature="e#55#69#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,7 +80,7 @@
       <file leaf-file-name="TestClient.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestClient.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="58" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="31" max-vertical-offset="408">
+            <state line="6" column="58" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="408">
               <folding />
             </state>
           </provider>
@@ -85,16 +89,7 @@
       <file leaf-file-name="argument.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/argument.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="24" selection-start="1823" selection-end="1977" vertical-scroll-proportion="0.0" vertical-offset="1001" max-vertical-offset="1615">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Argument" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/draf/Argument">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="31" selection-start="0" selection-end="269" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="306">
+            <state line="77" column="28" selection-start="2113" selection-end="2113" vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="1615">
               <folding />
             </state>
           </provider>
@@ -112,7 +107,7 @@
       <file leaf-file-name="command.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/command.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="65" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.0" vertical-offset="1239" max-vertical-offset="2873">
+            <state line="51" column="65" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="2873">
               <folding />
             </state>
           </provider>
@@ -141,11 +136,12 @@
         <option value="$PROJECT_DIR$/log.py" />
         <option value="$PROJECT_DIR$/draf.py" />
         <option value="$PROJECT_DIR$/Client.py" />
-        <option value="$PROJECT_DIR$/argument.py" />
         <option value="$PROJECT_DIR$/command.py" />
         <option value="$PROJECT_DIR$/client/Client.py" />
         <option value="$PROJECT_DIR$/client/client.py" />
         <option value="$PROJECT_DIR$/server.py" />
+        <option value="$PROJECT_DIR$/database/dbmanager.py" />
+        <option value="$PROJECT_DIR$/argument.py" />
       </list>
     </option>
   </component>
@@ -202,13 +198,20 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="Server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 2.7 (C:/Python27/python.exe) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -265,12 +268,13 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -293,7 +297,7 @@
       <recent name="E:\WorkSpace\OneOfThem\GoldMinerServer\trunk\Server\client" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Client (1)">
+  <component name="RunManager" selected="Python.server">
     <configuration default="false" name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -579,21 +583,21 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24980111" sideWeight="0.6741214" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26173428" sideWeight="0.6741214" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16653876" sideWeight="0.6741214" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1941673" sideWeight="0.6741214" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3888889" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3258786" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32698414" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.326284" sideWeight="0.50038373" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.326284" sideWeight="0.49961627" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32857144" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -615,6 +619,11 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -632,6 +641,257 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/help/log.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="20" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="170">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="58" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="408">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/argument.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="24" selection-start="1823" selection-end="1977" vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="1615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draf/CommandID">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="20" selection-start="0" selection-end="156" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="65" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="2873">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm30/system/python_stubs/-762174762/__builtin__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1092" column="0" selection-start="36577" selection-end="36577" vertical-scroll-proportion="0.0" vertical-offset="18564" max-vertical-offset="85714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="38" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="28" selection-start="3468" selection-end="3468" vertical-scroll-proportion="0.0" vertical-offset="1802" max-vertical-offset="3621">
+          <folding>
+            <element signature="e#24#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/dbmanager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1360">
+          <folding>
+            <element signature="e#55#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/help/log.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="20" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="170">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="58" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="408">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/argument.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="24" selection-start="1823" selection-end="1977" vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="1615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draf/Argument">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="31" selection-start="0" selection-end="269" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="306" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draf/CommandID">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="20" selection-start="0" selection-end="156" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="65" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="2873">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm30/system/python_stubs/-762174762/__builtin__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1092" column="0" selection-start="36577" selection-end="36577" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="85714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="38" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="13" selection-start="210" selection-end="210" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="3621">
+          <folding>
+            <element signature="e#24#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/dbmanager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1360">
+          <folding>
+            <element signature="e#55#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/help/log.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="20" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="170">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="58" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="408">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/argument.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="24" selection-start="1823" selection-end="1977" vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="1615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draf/Argument">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="31" selection-start="0" selection-end="269" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="306" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draf/CommandID">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="20" selection-start="0" selection-end="156" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="65" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="2873">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm30/system/python_stubs/-762174762/__builtin__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1092" column="0" selection-start="36577" selection-end="36577" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="85714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="38" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="39" selection-start="2984" selection-end="2984" vertical-scroll-proportion="0.0" vertical-offset="1513" max-vertical-offset="3621">
+          <folding>
+            <element signature="e#24#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/dbmanager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1360">
+          <folding>
+            <element signature="e#55#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/help/log.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="20" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="170">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="58" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="408">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/argument.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="24" selection-start="1823" selection-end="1977" vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="1615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draf/Argument">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="31" selection-start="0" selection-end="269" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="306" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draf/CommandID">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="20" selection-start="0" selection-end="156" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="65" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="2873">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://C:/Python27/Lib/SocketServer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="643" column="30" selection-start="21053" selection-end="21053" vertical-scroll-proportion="0.28106508" vertical-offset="10768" max-vertical-offset="12461" />
@@ -639,7 +899,7 @@
     </entry>
     <entry file="file://$USER_HOME$/.PyCharm30/system/python_stubs/-762174762/__builtin__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1092" column="76" selection-start="37187" selection-end="37187" vertical-scroll-proportion="0.0" vertical-offset="18428" max-vertical-offset="86683">
+        <state line="1092" column="0" selection-start="36577" selection-end="36577" vertical-scroll-proportion="0.0" vertical-offset="18564" max-vertical-offset="85714">
           <folding />
         </state>
       </provider>
@@ -673,16 +933,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/draf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="18" selection-start="102" selection-end="203" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/argument.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="24" selection-start="1823" selection-end="1977" vertical-scroll-proportion="0.0" vertical-offset="1001" max-vertical-offset="1615">
-          <folding />
-        </state>
+        <state line="10" column="18" selection-start="102" selection-end="203" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/command.py">
@@ -699,18 +950,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/dbmanager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1343">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/draf/Argument">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="31" selection-start="0" selection-end="269" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <folding />
-        </state>
+        <state line="10" column="31" selection-start="0" selection-end="269" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TestClient.py">
@@ -727,10 +969,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/dbmanager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1343">
+          <folding>
+            <element signature="e#55#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/argument.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="28" selection-start="2113" selection-end="2113" vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="1615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="39" selection-start="2984" selection-end="2984" vertical-scroll-proportion="0.70718235" vertical-offset="1240" max-vertical-offset="3621">
-          <folding />
+        <state line="81" column="5" selection-start="2684" selection-end="2684" vertical-scroll-proportion="0.45112783" vertical-offset="1197" max-vertical-offset="3638">
+          <folding>
+            <element signature="e#24#64#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -49,7 +49,7 @@ def read(sock, data):
         elif arg_type == Argument.BYTE:
             byte_val = int(unpack("B", data[read_count:read_count + 1])[0])
             read_count += 1
-            add_byte(arg_code, byte_val)
+            cmd.add_byte(arg_code, byte_val)
         elif arg_type == Argument.SHORT:
             short_val = int(unpack("<H", data[read_count:read_count + 2])[0])
             read_count += 2
@@ -100,12 +100,12 @@ def analysis_message_login(sock, cmd):
     @param cmd:
     @return:
     """
-     if db.check_user_login(cmd.get_string(Argument.ARG_PLAYER_USERNAME),
-                               cmd.get_string(Argument.ARG_PLAYER_PASSWRD)):
-            send_cmd = Command(Command.CMD_LOGIN)
-            send_cmd.add_int(Argument.ARG_CODE, 1)
-            send(sock, send_cmd)
-    pass
+    if db.check_user_login(cmd.get_string(Argument.ARG_PLAYER_USERNAME),
+                           cmd.get_string(Argument.ARG_PLAYER_PASSWRD)):
+        send_cmd = Command(Command.CMD_LOGIN)
+        send_cmd.add_int(Argument.ARG_CODE, 1)
+        send(sock, send_cmd)
+pass
 
 def analysis_message_register(sock, cmd):
     """
@@ -159,11 +159,11 @@ def analysis_message_remove_friend(sock, cmd):
 
 
 def send(sock, send_cmd):
-    request.sendall(send_cmd.get_bytes())
+    sock.sendall(send_cmd.get_bytes())
     print "Send:   "+send_cmd.get_log()
     pass
 
-HOST, PORT, RECV_BUFFER = "localhost", 9999, 4096
+HOST, PORT, RECV_BUFFER = "localhost", 8080, 4096
 data = None
 reading = True
 """Connection List"""
@@ -172,7 +172,7 @@ connection_list = []
 logedin_list = []
 """Database"""
 db = DBManager()
-db.connect('127.0.0.1', 'root', '', 'oot_online')
+db.connect('127.0.0.1', 'root', '', 'gold_miner_online')
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 server_socket.bind((HOST,PORT))
@@ -182,17 +182,17 @@ connection_list.append(server_socket)
 print "Game server started on port " + str(PORT)
 while True:
     # Get the list sockets which are ready to be read through select
-    read_sockets,write_sockets,error_sockets = select.select(connection_list,[],[])
+    read_sockets,write_sockets,error_sockets = select.select(connection_list, [], [])
     for sock in read_sockets:
         #New connection
         if sock == server_socket:
-            # Handle the case in which there is a new connection recieved through server_socket
+            # Handle the case in which there is a new connection received through server_socket
             sockfd, addr = server_socket.accept()
             connection_list.append(sockfd)
             log.log("Have connection from :" + str(addr))
         #Some incoming message from a client
         else:
-            # Data recieved from client, process it
+            # Data received from client, process it
             try:
                 #In Windows, sometimes when a TCP program closes abruptly,
                 # a "Connection reset by peer" exception will be thrown
@@ -200,7 +200,7 @@ while True:
                 if data:
                     read(sock, data)
             except IOError as err:
-                print 'My exception occurred, value:', e.value
+                print 'My exception occurred, value:', err.value
                 print "Client (%s, %s) is offline" % addr
                 sock.close()
                 connection_list.remove(sock)
