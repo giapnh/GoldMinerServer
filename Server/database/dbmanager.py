@@ -3,7 +3,6 @@ __author__ = 'Nguyen Huu Giap'
 import MySQLdb
 import hashlib
 
-
 class DBManager:
     #Static instance
     db = None
