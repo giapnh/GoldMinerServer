@@ -83,6 +83,8 @@ class Argument:
     ARG_PLAYER_LEVEL_UP_REQUIRE = 26
     ARG_PLAYER_CUP = 27
 
+    ARG_FRIEND_USERNAME = 40
+
 
 
 

@@ -15,13 +15,11 @@ class Command:
     CMD_REGISTER = 1
     CMD_LOGIN = 2
     CMD_PLAYER_INFO = 3
-
-    CMD_ADD_FRIEND = 10
-    CMD_ACCEPT_FRIEND = 11
-    CMD_REMOVE_FRIEND = 12
-
+    CMD_LIST_FRIEND = 10
+    CMD_ADD_FRIEND = 11
+    CMD_ACCEPT_FRIEND = 12
+    CMD_REMOVE_FRIEND = 13
     CMD_PLAYER_CHAT = 20
-
 
     def __init__(self, code):
         self.args = {}
@@ -57,9 +55,10 @@ class Command:
         return self
 
     def get_string(self, code=0, default=""):
-        arg = self.args[code]
-        if None != arg:
-            return arg.to_string()
+        if self.args.__contains__(code):
+            arg = self.args[code]
+            if None != arg:
+                return arg.to_string()
         return default
 
     def get_int(self, code, default=0):
@@ -120,7 +119,7 @@ class Command:
             if arg_type == Argument.STRING:
                 #string data length
                 cmd_len += 4
-                cmd_len += len(str(arg.string_value).encode('utf-8'))
+                cmd_len += len(unicode(str(arg.string_value), 'utf8'))
             elif arg_type == Argument.RAW:
                 cmd_len += 4
                 cmd_len += len(arg.byte_value)
@@ -153,7 +152,7 @@ class Command:
                 pack_into("<L", buff, offset, arg.number_value)
                 offset += 8
             elif arg.type == Argument.STRING:
-                str_len = len(str(arg.string_value).encode())
+                str_len = len(unicode(str(arg.string_value), 'utf8'))
                 pack_into("<I", buff, offset, str_len)
                 offset += 4
                 pack_into(str(str_len)+"s", buff, offset, str(arg.string_value))

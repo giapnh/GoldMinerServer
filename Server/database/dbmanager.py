@@ -45,10 +45,10 @@ class DBManager:
     """
     Add user to database when has user register
     """
-    def add_user(self, username="", password="", os=0):
+    def add_user(self, username="", password=""):
         c = self.db.cursor()
         c.execute("""INSERT INTO user(u_username, u_password) VALUES(%s, %s)""",
-                  (username, password, str(os), ))
+                  (username, hashlib.md5(password).hexdigest()))
         self.db.commit()
         pass
     """
@@ -56,14 +56,38 @@ class DBManager:
     """
     def get_user_info(self, username=""):
         c = self.db.cursor()
-        c.execute("""SELECT u_username,u_level,u_level_up_point
+        c.execute("""SELECT u_username,u_level,u_levelup_point
          ,u_cup FROM user where u_username = %s""", (username, ))
         if c.rowcount == 1:
             row = c.fetchone()
-            info = {"u_username": row[0], "u_level": row[1], "u_level_up_point": row[2], "u_cup": row[3]}
+            info = {"u_username": row[0], "u_level": row[1], "u_levelup_point": row[2], "u_cup": row[3]}
             return info
         else:
             return None
+
+    def add_friend(self, current_user="", friend=""):
+        c = self.db.cursor()
+        if not self.check_user_exits(current_user) or not self.check_user_exits(friend):
+            return False
+        else:
+            c.execute("""SELECT u_id FROM user where u_username = %s""", (current_user, ))
+            row = c.fetchone()
+            from_id = int(row[0])
+            c.execute("""SELECT u_id FROM user where u_username = %s""", (friend,))
+            row2 = c.fetchone()
+            to_id = int(row2[0])
+            c.execute("""SELECT friendship_from, friendship_to FROM pending_friendship
+            where friendship_from = %s and friendship_to = %s""",
+                      (str(from_id), str(to_id)))
+            if c.rowcount == 0:
+                #Add to pending_friendship
+                c.execute("""INSERT INTO pending_friendship(friendship_from, friendship_to)
+                VALUES(%s, %s)""", (str(from_id), str(to_id)))
+                self.db.commit()
+                return True
+            else:
+                return False
+
     """
     Close connection to mysql
     """

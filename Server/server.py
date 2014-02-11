@@ -65,6 +65,7 @@ def read(sock, data):
     analysis_message(sock, cmd)
     pass
 
+
 def analysis_message(sock, cmd):
     """
     @param sock: client just sent message
@@ -81,6 +82,10 @@ def analysis_message(sock, cmd):
     elif cmd.code == Command.CMD_PLAYER_CHAT:
         analysis_message_chat(sock, cmd)
         pass
+        """"""
+    elif cmd.code == Command.CMD_LIST_FRIEND:
+        analysis_message_list_friend(sock, cmd)
+        pass
     elif cmd.code == Command.CMD_ADD_FRIEND:
         analysis_message_add_friend(sock, cmd)
         pass
@@ -93,6 +98,7 @@ def analysis_message(sock, cmd):
         pass
     return cmd
 
+
 def analysis_message_login(sock, cmd):
     """
     Login Message
@@ -101,11 +107,16 @@ def analysis_message_login(sock, cmd):
     @return:
     """
     if db.check_user_login(cmd.get_string(Argument.ARG_PLAYER_USERNAME),
-                           cmd.get_string(Argument.ARG_PLAYER_PASSWRD)):
+                           cmd.get_string(Argument.ARG_PLAYER_PASSWORD)):
+        """Add player to list"""
+        name_sock_map[cmd.get_string(Argument.ARG_PLAYER_USERNAME)] = sock
+        sock_name_map[sock] = cmd.get_string(Argument.ARG_PLAYER_USERNAME)
+
         send_cmd = Command(Command.CMD_LOGIN)
         send_cmd.add_int(Argument.ARG_CODE, 1)
         send(sock, send_cmd)
 pass
+
 
 def analysis_message_register(sock, cmd):
     """
@@ -114,8 +125,15 @@ def analysis_message_register(sock, cmd):
     @param cmd:
     @return:
     """
-
+    send_cmd = Command(Command.CMD_REGISTER)
+    if db.check_user_exits(cmd.get_string(Argument.ARG_PLAYER_USERNAME)):
+        send_cmd.add_int(Argument.ARG_CODE, 0)
+    else:
+        db.add_user(cmd.get_string(Argument.ARG_PLAYER_USERNAME), cmd.get_string(Argument.ARG_PLAYER_PASSWORD))
+        send_cmd.add_int(Argument.ARG_CODE, 1)
+    sock.sendall(send_cmd.get_bytes())
     pass
+
 
 def analysis_message_chat(sock, cmd):
     """
@@ -124,10 +142,22 @@ def analysis_message_chat(sock, cmd):
     @param cmd:
     @return:
     """
-    for client in connection_list:
-        if client != server_socket and client != sock:
-            client.send(cmd.get_bytes())
+    from_user = sock_name_map[sock]
+    to_user = cmd.get_string(Argument.ARG_FRIEND_USERNAME, "noname")
+
     pass
+
+
+def analysis_message_list_friend(sock, cmd):
+    """
+    Get list friend
+    @param sock:
+    @param cmd:
+    @return:
+    """
+    sock.sendall(cmd.get_bytes())
+    pass
+
 
 def analysis_message_add_friend(sock, cmd):
     """
@@ -136,7 +166,16 @@ def analysis_message_add_friend(sock, cmd):
     @param cmd:
     @return:
     """
-    pass
+    send_cmd = Command(Command.CMD_ADD_FRIEND)
+    if db.add_friend(cmd.get_string(Argument.ARG_PLAYER_USERNAME), cmd.get_string(Argument.ARG_FRIEND_USERNAME)):
+        send_cmd.add_int(Argument.ARG_CODE, 1)
+        send_cmd.add_string(Argument.ARG_MESSAGE, "Send invite friend successful!")
+        #TODO send to friend invite message
+    else:
+        send_cmd.add_int(Argument.ARG_CODE, 0)
+        send_cmd.add_string(Argument.ARG_MESSAGE, "Send invite friend failure! Please try again!")
+    sock.sendall(send_cmd.get_bytes())
+
 
 def analysis_message_accept_friend(sock, cmd):
     """
@@ -158,31 +197,39 @@ def analysis_message_remove_friend(sock, cmd):
     pass
 
 
+def check_player_online(username=""):
+    if username in name_sock_map.keys():
+        return True
+    else:
+        return False
+
+
 def send(sock, send_cmd):
     sock.sendall(send_cmd.get_bytes())
     print "Send:   "+send_cmd.get_log()
     pass
 
-HOST, PORT, RECV_BUFFER = "localhost", 8080, 4096
+HOST, PORT, RECV_BUFFER = "localhost", 9090, 4096
 data = None
 reading = True
 """Connection List"""
 connection_list = []
 """List player loged in"""
-logedin_list = []
+name_sock_map = {}
+sock_name_map = {}
 """Database"""
 db = DBManager()
 db.connect('127.0.0.1', 'root', '', 'gold_miner_online')
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-server_socket.bind((HOST,PORT))
+server_socket.bind((HOST, PORT))
 server_socket.setblocking(0)
 server_socket.listen(5)
 connection_list.append(server_socket)
 print "Game server started on port " + str(PORT)
 while True:
     # Get the list sockets which are ready to be read through select
-    read_sockets,write_sockets,error_sockets = select.select(connection_list, [], [])
+    read_sockets, write_sockets, error_sockets = select.select(connection_list, [], [])
     for sock in read_sockets:
         #New connection
         if sock == server_socket:
@@ -200,7 +247,7 @@ while True:
                 if data:
                     read(sock, data)
             except IOError as err:
-                print 'My exception occurred, value:', err.value
+                print 'My exception occurred, value:', err.message
                 print "Client (%s, %s) is offline" % addr
                 sock.close()
                 connection_list.remove(sock)
